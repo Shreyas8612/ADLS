@@ -157,6 +157,9 @@ venv.bak/
 vivado_pid*
 synth/
 
+# Generated SVG files
+*.svg
+
 # Generated SV LUT files
 *_lut.sv
 
