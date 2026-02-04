@@ -241,3 +241,20 @@ model_path = Path(__file__).parent / "Lab_2_Task_1_Best_Model.pkl"
 with open(model_path, "wb") as f:
     dill.dump(best_model, f)
 print(f"\nBest model saved to: {model_path}")
+
+#SUMMARY:
+
+#RandomSampler:
+#Best Accuracy: 0.8315
+#Best Trial Number: 18
+#Number of Completed Trials: 20
+
+#TPESampler:
+#Best Accuracy: 0.8339
+#Best Trial Number: 19
+#Number of Completed Trials: 20
+
+#GridSampler:
+#Best Accuracy: 0.8352
+#Best Trial Number: 13
+#Number of Completed Trials: 20
