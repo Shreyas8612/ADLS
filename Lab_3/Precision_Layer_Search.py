@@ -481,9 +481,59 @@ for layer_type, count in sorted(type_distribution.items(), key=lambda x: x[1], r
 # Save best model
 if study.best_trial.user_attrs.get("model") is not None:
     best_model = study.best_trial.user_attrs["model"].cpu()
-    model_path = Path(__file__).parent / "Lab_3_Task_2_Best_All_Precision_Model.pkl"
+    model_path = Path(__file__).parent / "Lab_3_Task_2_All_Precision_Model.pkl"
     with open(model_path, "wb") as f:
         dill.dump(best_model, f)
     print(f"\nBest model saved to: {model_path}")
 
-print(f"Plot saved to: {save_path}")
+print(f"Plot saved to: {save_path}")                         
+
+# Best Trial:
+#  Accuracy: 0.8737
+#  Trial Number: 26
+#  Total Trials: 30
+
+# PRECISION TYPE:                     
+
+
+# Precision Type            Trials     Best Acc     Avg Acc     
+# ------------------------------------------------------------
+# Mixed                     30         0.8737      0.7896
+
+# ======================================================================
+
+# Best Trial Configuration:
+#  Total Layers: 14
+#  LinearBlockLog: 4 layers (28.6%)
+#  LinearBlockFP: 2 layers (14.3%)
+#  LinearBlockMinifloat: 2 layers (14.3%)
+#  LinearLog: 2 layers (14.3%)
+#  LinearInteger: 2 layers (14.3%)
+#  LinearMinifloatDenorm: 1 layers (7.1%)
+#  LinearBinary: 1 layers (7.1%)
+
+
+# For each trial using only ONE precision type for all layers (But with different Hyperparameters per layer)
+
+# Best Trial:
+#  Accuracy: 0.8704
+#  Trial Number: 4
+#  Total Trials: 30
+
+#Precision Type            Trials     Best Acc     Avg Acc     
+#------------------------------------------------------------
+#MinifloatIEEE             9          0.8704      0.8593
+#BlockLog                  5          0.8689      0.8675
+#Log                       3          0.8682      0.8543
+#FP32                      2          0.8676      0.8676
+#Integer                   2          0.8620      0.6810
+#BlockFP                   2          0.8581      0.8572
+#BlockMinifloat            2          0.8546      0.6773
+#MinifloatDenorm           3          0.8449      0.7289
+#Binary                    2          0.5184      0.5044
+
+#======================================================================
+
+#Best Trial Configuration:
+#  Total Layers: 1
+#  LinearMinifloatIEEE: 1 layers (100.0%)
